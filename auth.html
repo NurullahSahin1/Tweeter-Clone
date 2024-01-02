@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/X-Icon.png" type="image/x-icon">
+</head>
+
+<body id="auth-page">
+
+    <form id="login">
+        <img src="images/X-Icon.png">
+        <div>
+            <label>Kullanıcı Adı</label>
+            <input type="text" id="name" class="form-control">
+            <div class="name-warning">
+                <!-- <p class="warning">Bu isimde kullanıcı bulunamadı</p> -->
+            </div>
+        </div>
+        <div>
+            <label>Sifre</label>
+            <input type="password" id="pass" class="form-control">
+            <div class="pass-warning">
+                <!-- <p class="warning">Sifreniz Yeteri Kadar Güçlü Değil!!
+                </p> -->
+            </div>
+        </div>
+        <button>Giriş Yap</button>
+    </form>
+
+    <script type="module" src="/scripts/auth.js"></script>
+</body>
+
+</html>

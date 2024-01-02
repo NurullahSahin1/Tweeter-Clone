@@ -1,0 +1,558 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,200&display=swap");
+@import "./scss/responsive";
+@import "./scss/auth";
+@import "./scss/loader";
+@import "./scss/user";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  background: black;
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+button:hover {
+  filter: brightness(60%);
+}
+
+// ANASAYFA
+
+#feed {
+  min-width: 100vh;
+  font-family: "poppins";
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+
+  @include sm {
+    grid-template-columns: 1fr 5fr 0 !important;
+  }
+}
+
+// sol alan
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include sm {
+    align-items: center !important;
+  }
+
+  @media (min-width: 1000px) {
+    align-items: end;
+    margin-right: 50px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+
+    @include md {
+      align-items: end;
+      padding: 10px 5px !important;
+    }
+
+    li {
+      display: flex;
+      font-size: 19px;
+      gap: 10px;
+      padding: 20px 10px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.4s;
+      @include sm {
+        padding: 10px 5px;
+      }
+      &:hover {
+        background: rgb(60, 60, 60);
+      }
+      &:last-child {
+        background: $blue;
+        padding: 10px 10px;
+        @include sm {
+          padding: 5px 5px;
+        }
+      }
+    }
+    img {
+      width: 80px;
+      @include md {
+        width: 40px;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    i {
+      @include md {
+        font-size: 23px;
+      }
+    }
+    span {
+      text-decoration: none;
+      white-space: nowrap;
+
+      @include md {
+        display: none;
+      }
+    }
+  }
+  .user-info {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 0 10px;
+    @include md {
+      flex-direction: column;
+      align-items: end;
+    }
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+
+      @include md {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    button {
+      font-size: 16px;
+      padding: 4px 10px;
+      display: flex;
+      gap: 5px;
+      margin-top: 5px;
+      @include md {
+        font-size: 18px;
+        padding: 6px 16px;
+      }
+    }
+    span,
+    p {
+      white-space: nowrap;
+      @include md {
+        display: none;
+      }
+    }
+  }
+}
+
+// orta kısım
+main {
+  height: 100vh;
+  border: 1px solid rgb(60, 60, 60);
+  overflow: auto;
+
+  header {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 21px;
+    border-bottom: 1px solid rgb(60, 60, 60);
+  }
+
+  #post-tweet {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .input-area {
+      width: 100%;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 20px;
+      }
+      .button-area {
+        display: flex;
+        justify-content: end;
+
+        button {
+          border-radius: 60px;
+          background: $blue;
+          color: white;
+          padding: 10px 20px;
+          font-size: 15px;
+          &:hover {
+            background: rgb(16, 126, 255);
+          }
+        }
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    background: black;
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+  }
+}
+
+.tweets-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(60, 60, 60);
+
+  #user-img {
+    height: 50px;
+    border-radius: 50%;
+    @include sm {
+      display: none;
+    }
+  }
+  #mobile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    @include sm {
+      display: block;
+    }
+  }
+  .body {
+    width: 100%;
+    margin-top: 10px;
+    text-decoration: none;
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        p {
+          color: gray;
+          @include sm {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .content {
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+
+      img,
+      video {
+        width: 100%;
+        object-fit: cover;
+        max-height: 600px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.tweet .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  button {
+    background: none;
+    color: gray;
+    @include sm {
+      font-size: 14px;
+    }
+    &:nth-child(1) {
+      &:hover {
+        color: $blue;
+        background: rgba(95, 171, 199, 0.404);
+      }
+    }
+    &:nth-child(2) {
+      &:hover {
+        color: green;
+        background: rgba(135, 223, 135, 0.319);
+      }
+    }
+    &:nth-child(3) {
+      &:hover {
+        color: pink;
+        background: rgba(255, 192, 203, 0.316);
+      }
+    }
+    &:nth-child(4) {
+      &:hover {
+        color: $blue;
+        background: rgba(95, 171, 199, 0.404);
+      }
+    }
+  }
+}
+
+// sağ alan
+aside {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 50px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @include md {
+    display: none;
+  }
+
+  form {
+    background: rgb(40, 40, 40);
+    padding: 5px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 40px;
+    color: gray;
+  }
+  input {
+    background: none;
+    border: none;
+    font-family: "poppins", sans-serif;
+    outline: none;
+    color: gray;
+  }
+}
+
+// detay sayfası için nav
+.nav {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  i {
+    font-size: 21px;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    &:hover {
+      background: gray;
+    }
+  }
+  h4 {
+    font-size: 20px;
+  }
+}
+.detail-tweet {
+  padding: 20px;
+
+  .user img {
+    border-radius: 50%;
+  }
+  .content {
+    margin-top: 30px !important;
+  }
+
+  .info {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+
+    p:nth-child(1) {
+      color: gray;
+    }
+
+    p:nth-child(2) {
+      display: flex;
+      grid-area: 4px;
+      span:nth-child(2) {
+        color: gray;
+      }
+    }
+  }
+}
+
+#comment-form {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    border-radius: 50%;
+  }
+
+  input {
+    flex: 1;
+    background: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    outline: none;
+  }
+  button {
+    background: $blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+}
+
+.connections {
+  display: grid;
+  gap: 40px;
+
+  .headline h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .headline p {
+    line-height: 2.4;
+  }
+
+  .subscribe-links {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: transparent;
+    }
+  }
+  p {
+    line-height: 2.4;
+
+    a {
+      text-decoration: none;
+      color: $blue;
+      font-weight: bold;
+    }
+  }
+}
+
+.subscribe-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  a {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 15px;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s;
+    &:hover {
+      background-color: rgb(45, 44, 44);
+    }
+
+    p {
+      margin-left: 10%;
+    }
+  }
+}
+
+.like-offers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-right: 10%;
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .github,
+  .nodejs,
+  .JavaScript-Daily {
+    display: flex;
+    gap: 20%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: rgba(95, 158, 160, 0.264);
+    }
+
+    .names {
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      margin-left: -60px;
+      align-items: left;
+      text-align: left;
+      font-size: large;
+    }
+
+    button {
+      width: 100px;
+      white-space: nowrap;
+      padding: 10px;
+      background: $blue;
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    color: $blue;
+  }
+}

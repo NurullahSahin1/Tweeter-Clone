@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Anasayfa</title>
+    <link rel="shortcut icon" href="images/X-Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+</head>
+
+<body id="feed">
+
+    <!-- sol kısım -->
+
+    <nav>
+        <ul>
+            <img src="/images/X-Icon.png" />
+
+            <li>
+                <a href="/">
+                    <i class="bi bi-house-fill"></i>
+                    <span>Anasayfa</span>
+                </a>
+            </li>
+            <li>
+                <i class="bi bi-search"></i>
+                <span>Keşfet</span>
+            </li>
+            <li>
+                <i class="bi bi-bell-fill"></i>
+                <span>Bildirimler</span>
+            </li>
+            <li>
+                <i class="bi bi-bookmark-fill"></i>
+                <span>Yer İşaretleri</span>
+            </li>
+            <li>
+                <i class="bi bi-envelope-fill"></i>
+                <span>Mesajlar</span>
+            </li>
+            <li>
+                <i class="bi bi-send-fill"></i>
+                <span>Gönder</span>
+            </li>
+        </ul>
+
+        <!-- to do list -->
+        <div class="user-info">
+            <img id="profile-pic" src="/images/default.png">
+            <div>
+                <p id="user-name">İsim</p>
+                <p id="user-tag">@İsim</p>
+                <button id="logout-btn">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span>Çıkış Yap</span>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- orta kısım -->
+    <main>
+
+        <header>Anasayfa</header>
+
+        <form id="post-tweet">
+
+            <img src="/images/default.png" id="profile-pic">
+            <div class="input-area">
+                <input placeholder="Neler Oluyor?" type="text">
+                <div class="button-area">
+                    <button id="post-tweet">Tweetle</button>
+                </div>
+            </div>
+        </form>
+
+        <section class="tweets-area">
+            <!-- <div class="tweet">
+                <img id="user-img" src="/images/default.png" alt="">
+                <div class="body">
+                    <div class="user">
+                        <a href="#">
+                            <img id="mobile-img" src="/images/default.png" alt="">
+
+                            <b>Deneme</b>
+                            <p>@deneme</p>
+                            <p>20 Saat Önce</p>
+                        </a>
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                    <div class="content">
+                        <p>Atılan tweet yazısı</p>
+                        <img src="https://pbs.twimg.com/media/GB7_AkIWkAAMFBS.jpg">
+                    </div>
+                    <div class="buttons">
+                        <button>
+                            <i class="bi bi-chat"></i>
+                            <span>255</span>
+                        </button>
+                        <button>
+                            <i class="bi bi-recycle"></i>
+                            <span>125</span>
+                        </button>
+                        <button>
+                            <i class="bi bi-heart"></i>
+                            <span>986</span>
+                        </button>
+                        <button>
+                            <i class="bi bi-bookmark"></i>
+                            <span>6574</span>
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <!-- sağ kısım -->
+    <aside>
+        <form>
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Ara">
+        </form>
+
+        <div class="connections">
+            <div class="headline">
+                <h1>X'te yeni misin?</h1>
+                <p>Kişiselleştirilmiş zaman akışını almak için hemen kaydol!</p>
+            </div>
+            <div class="subscribe-links">
+                <a
+                    href="https://accounts.google.com/gsi/select?client_id=49625052041-kgt0hghf445lmcmhijv46b715m2mpbct.apps.googleusercontent.com&ux_mode=popup&ui_mode=card&as=kxStp7CWDazMbdio%2FWxBDQ&channel_id=76d41c975ab1cb1ebae488ab0469f3078bd0d417687da1b608cf745b8ebef8c8&origin=https%3A%2F%2Ftwitter.com">
+                    <img src="./images/google11.png" alt=""> Google ile kaydol
+                </a>
+                <a
+                    href="https://appleid.apple.com/auth/authorize?client_id=com.twitter.twitter.siwa&redirect_uri=https%3A%2F%2Ftwitter.com&response_type=code%20id_token&state=9ivo7IMEXyMoBXmHz0543G7leHe-jFQR9LvANrO4p6Q&scope=name%20email&response_mode=web_message&frame_id=c5d9686c-a0b3-400a-aae6-7744ec23c357&m=11&v=1.5.5"><img
+                        src="./images/apple11.png" alt="">Apple ile Kaydol</a>
+                <a href="#">
+                    <p> Hesap oluştur</p>
+                </a>
+            </div>
+            <p>By signing up, you agree to the <a href="#">Terms of Service</a> and <a href="">Privacy Policy</a>,
+                including <a href="">Cookie Use.</a></p>
+        </div>
+
+        <div class="like-offers">
+            <h1>Bunları beğenebilirsin</h1>
+            <div class="github">
+                <img src="images/github.png" alt="">
+                <div class="names">
+                    <b>GitHub <i class="bi bi-patch-check"></i></b>
+                    <p>@github</p>
+                </div>
+                <button>Takip et</button>
+            </div>
+            <div class="nodejs">
+                <img src="images/nodejs-icon.png" alt="">
+                <div class="names">
+                    <b>Node.js </b>
+                    <p>@nodejs</p>
+                </div>
+                <button>Takip et</button>
+            </div>
+            <div class="JavaScript-Daily">
+                <img src="images/Js Icon.jpg" alt="">
+                <div class="names">
+                    <b>JavaScript Daily </b>
+                    <p>@JavaScriptDaily</p>
+                </div>
+                <button>Takip et</button>
+            </div>
+            <a href="#">Daha Fazla Göster</a>
+        </div>
+
+    </aside>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/tr.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
