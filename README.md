@@ -14,3 +14,4 @@
 <p>- Clickable usernames for navigation to user profiles.</p>
 <p>- Search functionality with live results using the Twitter API.</p>
 
+![](Ekrankaydi.gif)
